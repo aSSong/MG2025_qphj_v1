@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="MG2025_qphj_v1"
+config/tags=PackedStringArray("working")
 run/main_scene="uid://cx5bqfr7w4q15"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("working")
 
 [display]
 
