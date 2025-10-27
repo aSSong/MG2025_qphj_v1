@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=3 uid="uid://by6fx14wsstve"]
+
+[ext_resource type="Script" uid="uid://c1kgosg2rg3b3" path="res://UI/title.gd" id="1_2itqh"]
+
+[node name="title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2itqh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21056241, 0.0071433554, 0.17163393, 1)
+
+[node name="name" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 1920.0
+offset_bottom = 251.0
+
+[node name="gamename" type="Label" parent="name"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 120
+text = "前仆后继吧，
+        Garenians！"
+
+[node name="button" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_top = 600.0
+offset_right = 1920.0
+offset_bottom = 962.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="button"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="single" type="Button" parent="button/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 36
+text = "单枪匹马(单机版)"
+
+[node name="multi" type="Button" parent="button/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "众志成城(联网版)"
+
+[node name="info" type="Button" parent="button/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "游戏说明"
+
+[node name="staff" type="Button" parent="button/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "制作人员"
+
+[node name="quit" type="Button" parent="button/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "退出"
+
+[connection signal="pressed" from="button/VBoxContainer/quit" to="." method="_on_quit_pressed"]
