@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bq3w8u8cpfed3" path="res://Levels/assets/SeaTalk_IMG_20251027_111842.png" id="1_sjfpm"]
 [ext_resource type="Texture2D" uid="uid://4mu4n6raj5d3" path="res://Levels/assets/SeaTalk_IMG_20251027_201707.png" id="2_q8pw6"]
-[ext_resource type="PackedScene" uid="uid://dugjv4s8k2jo4" path="res://player/player.tscn" id="3_sjfpm"]
+[ext_resource type="PackedScene" uid="uid://bli4f21gxunek" path="res://player/player_shixisheng.tscn" id="3_sjfpm"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sjfpm"]
 polygon = PackedVector2Array(540, 308, 133, 611, -87, 720, -426, 714, -423, 495, -83, 489, 334, 203, 572, 22)
@@ -36,9 +36,6 @@ position = Vector2(-2904, 1143)
 scale = Vector2(10, 10)
 texture = ExtResource("2_q8pw6")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_sjfpm")]
-position = Vector2(1006, 575)
-
 [node name="Occluder" type="Node2D" parent="."]
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Occluder"]
@@ -55,3 +52,5 @@ occluder = SubResource("OccluderPolygon2D_ighxs")
 
 [node name="LightOccluder2D5" type="LightOccluder2D" parent="Occluder"]
 occluder = SubResource("OccluderPolygon2D_h64l6")
+
+[node name="playerShixisheng" parent="." instance=ExtResource("3_sjfpm")]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bli4f21gxunek"]
+
+[ext_resource type="PackedScene" uid="uid://ddb22i2q1y15w" path="res://unit/unit.tscn" id="1_dswmd"]
+[ext_resource type="Texture2D" uid="uid://ds05yamimlnf5" path="res://player/assets/player01_1.png" id="2_ij0mm"]
+[ext_resource type="Script" uid="uid://4udsdsuulk12" path="res://player/player.gd" id="2_io30i"]
+
+[node name="playerShixisheng" instance=ExtResource("1_dswmd")]
+script = ExtResource("2_io30i")
+dash_duration = 0.5
+dash_speed_multi = 2.5
+dash_cooldown = 0.5
+
+[node name="Sprite" parent="Visuals" index="1"]
+texture = ExtResource("2_ij0mm")
