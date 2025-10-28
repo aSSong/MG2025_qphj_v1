@@ -1,18 +1,18 @@
 extends Unit
 class_name Player
 
-@export var dash_duration := 0.5
-@export var dash_speed_multi := 2.5
-@export var dash_cooldown := 0.5
+#@export var dash_duration := 0.5
+#@export var dash_speed_multi := 2.5
+#@export var dash_cooldown := 0.5
 
-@onready var dash_timer: Timer = $DashTimer
-@onready var dash_cooldown_timer: Timer = $DashCooldownTimer
+#@onready var dash_timer: Timer = $DashTimer
+#@onready var dash_cooldown_timer: Timer = $DashCooldownTimer
 @onready var collision: CollisionShape2D = $CollisionShape2D
 #@onready var trail: Trail = %Trail
 
 var move_dir: Vector2
-var is_dashing := false
-var dash_available := true
+#var is_dashing := false
+#var dash_available := true
 
 func _ready() -> void:
 	#dash_timer.wait_time = dash_duration
@@ -22,10 +22,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	move_dir = Input.get_vector("move_left","move_right","move_up","move_down")
 	
-	#var current_velocity := move_dir * stats.speed
-	var current_velocity := move_dir * 500
-	if is_dashing:
-		current_velocity *= dash_speed_multi
+	var current_velocity := move_dir * stats.speed
+	#var current_velocity := move_dir * 500
+	#if is_dashing:
+		#current_velocity *= dash_speed_multi
 		
 	position += current_velocity * delta
 	#position.x = clamp(position.x,-1000,1000)
@@ -37,14 +37,16 @@ func _process(delta: float) -> void:
 	
 	update_animations()
 	update_rotation()
+	pass
 	
-	 
+#	根据是否移动，切换待机和移动动画 
 func update_animations() -> void:
 	if move_dir.length() > 0:
 		anim_player.play("move")
 	else:
 		anim_player.play("idle")
 
+# 判断方向翻转图片
 func update_rotation()-> void:
 	if move_dir == Vector2.ZERO :
 		return

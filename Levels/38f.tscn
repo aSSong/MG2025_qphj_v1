@@ -22,16 +22,17 @@ polygon = PackedVector2Array(-2998, 132, -3424, 127, -3410, -1905, -3000, -1897)
 [node name="38F" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.25938675, 0.23502818, 0.4179399, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0.02745098)
 position = Vector2(-2786, 838)
 scale = Vector2(8, 8)
 texture = ExtResource("1_sjfpm")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-2904, 1143)
 scale = Vector2(10, 10)
 texture = ExtResource("2_q8pw6")
