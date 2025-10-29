@@ -14,10 +14,12 @@ var move_dir: Vector2
 #var is_dashing := false
 #var dash_available := true
 
-func _ready() -> void:
-	#dash_timer.wait_time = dash_duration
-	#dash_cooldown_timer.wait_time = dash_cooldown
-	pass
+#func _ready() -> void:
+##	super是为了此处的ready不要覆盖之前的ready，因为player是继承unit的
+	#super._ready()
+	##dash_timer.wait_time = dash_duration
+	##dash_cooldown_timer.wait_time = dash_cooldown
+	#pass
 
 func _process(delta: float) -> void:
 	move_dir = Input.get_vector("move_left","move_right","move_up","move_down")
