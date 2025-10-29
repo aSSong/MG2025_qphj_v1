@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://evptyl5egrvm"]
+[gd_scene load_steps=14 format=3 uid="uid://evptyl5egrvm"]
 
 [ext_resource type="Script" uid="uid://cfi6igsc3rlmv" path="res://Levels/38f.gd" id="1_7jyy0"]
 [ext_resource type="Texture2D" uid="uid://bq3w8u8cpfed3" path="res://Levels/assets/SeaTalk_IMG_20251027_111842.png" id="1_sjfpm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dqprnocuha5a4" path="res://Levels/camera_2d.gd" id="4_q8pw6"]
 [ext_resource type="Texture2D" uid="uid://buw1xm71b8p7h" path="res://player/assets/light_test.png" id="5_ighxs"]
 [ext_resource type="PackedScene" uid="uid://dtkwveruf6jj2" path="res://enemy/enemy_chaser_slow.tscn" id="7_h64l6"]
+[ext_resource type="PackedScene" uid="uid://c44attsrfmghf" path="res://UI/game_ui.tscn" id="8_p2en6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sjfpm"]
 polygon = PackedVector2Array(540, 308, 133, 611, -87, 720, -426, 714, -423, 495, -83, 489, 334, 203, 572, 22)
@@ -96,3 +97,5 @@ position = Vector2(-320, 0)
 
 [node name="EnemyChaserSlow5" parent="." instance=ExtResource("7_h64l6")]
 position = Vector2(172, 146)
+
+[node name="game_ui" parent="." instance=ExtResource("8_p2en6")]
