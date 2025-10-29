@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bli4f21gxunek"]
+[gd_scene load_steps=7 format=3 uid="uid://bli4f21gxunek"]
 
 [ext_resource type="PackedScene" uid="uid://ddb22i2q1y15w" path="res://unit/unit.tscn" id="1_dswmd"]
 [ext_resource type="Texture2D" uid="uid://ds05yamimlnf5" path="res://player/assets/player01_1.png" id="2_ij0mm"]
 [ext_resource type="Script" uid="uid://4udsdsuulk12" path="res://player/player.gd" id="2_io30i"]
 [ext_resource type="Resource" uid="uid://ctaaq4btyebqf" path="res://resources/players/stats_player_shixisheng.tres" id="3_tdevr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bvs8y"]
+radius = 14.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdevr"]
+radius = 22.0
+height = 80.0
 
 [node name="playerShixisheng" instance=ExtResource("1_dswmd")]
 script = ExtResource("2_io30i")
@@ -11,3 +19,16 @@ stats = ExtResource("3_tdevr")
 
 [node name="Sprite" parent="Visuals" index="1"]
 texture = ExtResource("2_ij0mm")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -32)
+shape = SubResource("CapsuleShape2D_bvs8y")
+debug_color = Color(0.13904622, 0.3866522, 1, 0.41960785)
+
+[node name="HurtboxComponent" parent="." index="3"]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(2, -40)
+shape = SubResource("CapsuleShape2D_tdevr")

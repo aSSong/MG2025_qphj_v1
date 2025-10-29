@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://evptyl5egrvm"]
+[gd_scene load_steps=18 format=3 uid="uid://evptyl5egrvm"]
 
 [ext_resource type="Script" uid="uid://cfi6igsc3rlmv" path="res://Levels/38f.gd" id="1_7jyy0"]
 [ext_resource type="Texture2D" uid="uid://bq3w8u8cpfed3" path="res://Levels/assets/SeaTalk_IMG_20251027_111842.png" id="1_sjfpm"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bli4f21gxunek" path="res://player/player_shixisheng.tscn" id="3_sjfpm"]
 [ext_resource type="Script" uid="uid://dqprnocuha5a4" path="res://Levels/camera_2d.gd" id="4_q8pw6"]
 [ext_resource type="Texture2D" uid="uid://buw1xm71b8p7h" path="res://player/assets/light_test.png" id="5_ighxs"]
+[ext_resource type="PackedScene" uid="uid://dtkwveruf6jj2" path="res://enemy/enemy_chaser_slow.tscn" id="7_h64l6"]
+[ext_resource type="PackedScene" uid="uid://3y0yc3xefmrr" path="res://enemy/enemy_chaser_mid.tscn" id="8_1qgkp"]
+[ext_resource type="PackedScene" uid="uid://c7mavups6v0es" path="res://enemy/enemy_chaser_fast.tscn" id="9_2veyi"]
+[ext_resource type="Script" uid="uid://btrndnx5yl5ci" path="res://unit/unit.gd" id="9_h6cqd"]
+[ext_resource type="PackedScene" uid="uid://dpdn6go0pyg7c" path="res://enemy/enemy_charger.tscn" id="10_h6cqd"]
+[ext_resource type="PackedScene" uid="uid://dyluy4wcwi1hb" path="res://enemy/enemy_shooter.tscn" id="11_1v33l"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sjfpm"]
 polygon = PackedVector2Array(540, 308, 133, 611, -87, 720, -426, 714, -423, 495, -83, 489, 334, 203, 572, 22)
@@ -80,3 +86,38 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 script = ExtResource("4_q8pw6")
+
+[node name="EnemyChaserSlow" parent="." instance=ExtResource("7_h64l6")]
+position = Vector2(172, 0)
+
+[node name="EnemyChaserSlow2" parent="." instance=ExtResource("7_h64l6")]
+position = Vector2(172, -298)
+
+[node name="EnemyChaserSlow3" parent="." instance=ExtResource("7_h64l6")]
+position = Vector2(662, 0)
+
+[node name="EnemyChaserSlow4" parent="." instance=ExtResource("7_h64l6")]
+position = Vector2(-320, 0)
+
+[node name="EnemyChaserSlow5" parent="." instance=ExtResource("7_h64l6")]
+position = Vector2(172, 146)
+
+[node name="EnemyChaserMid" parent="." instance=ExtResource("8_1qgkp")]
+position = Vector2(441, 343)
+script = ExtResource("9_h6cqd")
+stats = null
+
+[node name="EnemyChaserFast" parent="." instance=ExtResource("9_2veyi")]
+position = Vector2(561, -178)
+script = ExtResource("9_h6cqd")
+stats = null
+
+[node name="EnemyCharger" parent="." instance=ExtResource("10_h6cqd")]
+position = Vector2(31, 376)
+script = ExtResource("9_h6cqd")
+stats = null
+
+[node name="EnemyShooter" parent="." instance=ExtResource("11_1v33l")]
+position = Vector2(302, -343)
+script = ExtResource("9_h6cqd")
+stats = null
