@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://evptyl5egrvm"]
+[gd_scene load_steps=12 format=3 uid="uid://evptyl5egrvm"]
 
 [ext_resource type="Script" uid="uid://cfi6igsc3rlmv" path="res://Levels/38f.gd" id="1_7jyy0"]
 [ext_resource type="Texture2D" uid="uid://bq3w8u8cpfed3" path="res://Levels/assets/SeaTalk_IMG_20251027_111842.png" id="1_sjfpm"]
 [ext_resource type="Texture2D" uid="uid://4mu4n6raj5d3" path="res://Levels/assets/SeaTalk_IMG_20251027_201707.png" id="2_q8pw6"]
 [ext_resource type="PackedScene" uid="uid://bli4f21gxunek" path="res://player/player_shixisheng.tscn" id="3_sjfpm"]
 [ext_resource type="Script" uid="uid://dqprnocuha5a4" path="res://Levels/camera_2d.gd" id="4_q8pw6"]
+[ext_resource type="Texture2D" uid="uid://buw1xm71b8p7h" path="res://player/assets/light_test.png" id="5_ighxs"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sjfpm"]
 polygon = PackedVector2Array(540, 308, 133, 611, -87, 720, -426, 714, -423, 495, -83, 489, 334, 203, 572, 22)
@@ -31,17 +32,21 @@ color = Color(0.25938675, 0.23502818, 0.4179399, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.02745098)
-position = Vector2(-2786, 838)
+position = Vector2(-1100, -3385)
+rotation = 1.5707964
 scale = Vector2(8, 8)
 texture = ExtResource("1_sjfpm")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-2904, 1143)
-scale = Vector2(10, 10)
+position = Vector2(-809, -1777.0001)
+rotation = 1.5707964
+scale = Vector2(6, 6)
 texture = ExtResource("2_q8pw6")
 
 [node name="Occluder" type="Node2D" parent="."]
+position = Vector2(-114, -45)
+rotation = 1.5707964
+scale = Vector2(0.6, 0.6)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Occluder"]
 occluder = SubResource("OccluderPolygon2D_sjfpm")
@@ -59,6 +64,12 @@ occluder = SubResource("OccluderPolygon2D_ighxs")
 occluder = SubResource("OccluderPolygon2D_h64l6")
 
 [node name="playerShixisheng" parent="." instance=ExtResource("3_sjfpm")]
+
+[node name="PointLight2D" type="PointLight2D" parent="playerShixisheng"]
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("5_ighxs")
+texture_scale = 3.24
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
