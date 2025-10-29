@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqyjjyel8h04w"]
+
+[ext_resource type="PackedScene" uid="uid://bli4f21gxunek" path="res://player/player_shixisheng.tscn" id="1_jrra4"]
+[ext_resource type="Resource" uid="uid://dnfdayc31e7fp" path="res://resources/players/stats_player_yuangong.tres" id="2_66ytl"]
+
+[node name="playerYuangong" instance=ExtResource("1_jrra4")]
+stats = ExtResource("2_66ytl")

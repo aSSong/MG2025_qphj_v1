@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5uag528gn45v"]
+
+[ext_resource type="PackedScene" uid="uid://bli4f21gxunek" path="res://player/player_shixisheng.tscn" id="1_0t2cn"]
+[ext_resource type="Resource" uid="uid://b3jbcsgdm32l1" path="res://resources/players/stats_player_baojie.tres" id="2_3xh8j"]
+
+[node name="playerBaojie" instance=ExtResource("1_0t2cn")]
+stats = ExtResource("2_3xh8j")

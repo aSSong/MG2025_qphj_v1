@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://evptyl5egrvm"]
+[gd_scene load_steps=11 format=3 uid="uid://evptyl5egrvm"]
 
+[ext_resource type="Script" uid="uid://cfi6igsc3rlmv" path="res://Levels/38f.gd" id="1_7jyy0"]
 [ext_resource type="Texture2D" uid="uid://bq3w8u8cpfed3" path="res://Levels/assets/SeaTalk_IMG_20251027_111842.png" id="1_sjfpm"]
 [ext_resource type="Texture2D" uid="uid://4mu4n6raj5d3" path="res://Levels/assets/SeaTalk_IMG_20251027_201707.png" id="2_q8pw6"]
 [ext_resource type="PackedScene" uid="uid://bli4f21gxunek" path="res://player/player_shixisheng.tscn" id="3_sjfpm"]
+[ext_resource type="Script" uid="uid://dqprnocuha5a4" path="res://Levels/camera_2d.gd" id="4_q8pw6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sjfpm"]
 polygon = PackedVector2Array(540, 308, 133, 611, -87, 720, -426, 714, -423, 495, -83, 489, 334, 203, 572, 22)
@@ -19,7 +21,9 @@ polygon = PackedVector2Array(-4298, -63, -4298, -63, -4301, 311, -4041, 308, -40
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h64l6"]
 polygon = PackedVector2Array(-2998, 132, -3424, 127, -3410, -1905, -3000, -1897)
 
-[node name="38F" type="Node2D"]
+[node name="38F" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_7jyy0")
+player = NodePath("playerShixisheng")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -55,3 +59,13 @@ occluder = SubResource("OccluderPolygon2D_ighxs")
 occluder = SubResource("OccluderPolygon2D_h64l6")
 
 [node name="playerShixisheng" parent="." instance=ExtResource("3_sjfpm")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+script = ExtResource("4_q8pw6")
