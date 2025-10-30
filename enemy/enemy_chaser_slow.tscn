@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddb22i2q1y15w" path="res://unit/unit.tscn" id="1_obosr"]
 [ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://enemy/assets/Enemy_1.png" id="2_jmpup"]
 [ext_resource type="Script" uid="uid://cgumcbxae4psw" path="res://enemy/enemy.gd" id="2_wx1tx"]
-[ext_resource type="Resource" path="res://resources/enemies/stats_enemy_chaser_slow.tres" id="3_wx1tx"]
+[ext_resource type="Resource" uid="uid://rp7hrnwx6edo" path="res://resources/enemies/stats_enemy_chaser_slow.tres" id="3_wx1tx"]
 [ext_resource type="PackedScene" uid="uid://plxwp5avxfwc" path="res://components/hitbox_component.tscn" id="5_eo2v5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wx1tx"]
