@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtkwveruf6jj2"]
+[gd_scene load_steps=10 format=3 uid="uid://dtkwveruf6jj2"]
 
 [ext_resource type="PackedScene" uid="uid://ddb22i2q1y15w" path="res://unit/unit.tscn" id="1_obosr"]
 [ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://enemy/assets/Enemy_1.png" id="2_jmpup"]
@@ -11,6 +11,9 @@ radius = 42.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_obosr"]
 radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eo2v5"]
+radius = 48.010414
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_riw3d"]
 radius = 55.00909
@@ -34,6 +37,16 @@ debug_color = Color(0.69628704, 0.28155088, 1, 0.41960785)
 position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_obosr")
 
+[node name="HurtboxComponent" parent="." index="4"]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+z_index = 1
+position = Vector2(0, -35)
+shape = SubResource("CircleShape2D_eo2v5")
+debug_color = Color(1.2513996e-06, 0.7738451, 0.37235925, 0.41960785)
+
 [node name="HitboxComponent" parent="." index="5" instance=ExtResource("5_eo2v5")]
 collision_layer = 4
 collision_mask = 32
@@ -41,4 +54,4 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 position = Vector2(0, -44)
 shape = SubResource("CircleShape2D_riw3d")
-debug_color = Color(0.5380598, 0.023798347, 0.8374237, 0.41960785)
+debug_color = Color(0.7220535, 0, 0.34043425, 0.41960785)
