@@ -22,7 +22,7 @@ func update_weapons_position(weapons:Array[Weapon]) -> void:
 	if markers.size() != count:
 		return
 	for i in count:
-		weapons[i].global_position = markers[i].global_position
+		weapons[i].global_position = markers[i].global_position   
 	pass
 
 # Called when the node enters the scene tree for the first time.

@@ -3,8 +3,15 @@ class_name Enemy
 
 @export var flock_push := 20.0
 @onready var vision_area: Area2D = $VisionArea
+@onready var hitbox_component: HitboxComponet = $HitboxComponent
 
 var can_move := true
+
+func _ready() -> void:
+	super._ready()
+	if hitbox_component != null and stats != null:
+		hitbox_component.setup(stats.damage, false, 0.0, self)
+		print("Enemy %s hitbox setup: damage = %f" % [name, stats.damage])
 
 func _process(delta: float) -> void:
 	if not can_move:

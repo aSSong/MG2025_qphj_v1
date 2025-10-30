@@ -7,4 +7,4 @@
 script = ExtResource("2_gb3er")
 name = "Shixisheng"
 icon = ExtResource("1_cmex0")
-health = 15
+health = 150
