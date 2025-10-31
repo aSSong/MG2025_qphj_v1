@@ -27,6 +27,11 @@ func _ready() -> void:
 	
 #	武器测试数据
 	add_weapon(preload("uid://360g2b7g6j0j"))
+	#add_weapon(preload("uid://360g2b7g6j0j"))
+	#add_weapon(preload("uid://360g2b7g6j0j"))
+	#add_weapon(preload("uid://360g2b7g6j0j"))
+	#add_weapon(preload("uid://360g2b7g6j0j"))
+	#add_weapon(preload("uid://360g2b7g6j0j"))
 	pass
 
 func _process(delta: float) -> void:
@@ -75,6 +80,10 @@ func update_rotation()-> void:
 		visuals.scale = Vector2(1.0,1.0)
 	else:
 		visuals.scale = Vector2(-1.0,1.0)
+
+func is_facing_right() -> bool:
+#图片的拉伸如果为负值，则为向右，图片默认向左
+	return visuals.scale.x < 0
 
 #func start_dash() -> void:
 	#is_dashing = true
