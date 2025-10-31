@@ -9,6 +9,9 @@ var can_move := true
 
 func _ready() -> void:
 	super._ready()
+	# 设置VisionArea的collision_layer为2（Enemy层），让武器能够检测到
+	vision_area.collision_layer = 2
+	
 	if hitbox_component != null and stats != null:
 		hitbox_component.setup(stats.damage, false, 0.0, self)
 		print("Enemy %s hitbox setup: damage = %f" % [name, stats.damage])

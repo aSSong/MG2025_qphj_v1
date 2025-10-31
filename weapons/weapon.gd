@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not is_attacking:
 		if targets.size() > 0:
 			update_closest_target()
@@ -46,7 +46,7 @@ func get_custum_rotation_to_target() -> float:
 	return rot + weapon_spread
 
 func get_rotation_to_target() -> float:	
-	if targets.size() == 0:
+	if targets.size() == 0 or not closest_target or not is_instance_valid(closest_target):
 		return get_idle_rotation()
 	var rot := global_position.direction_to(closest_target.global_position).angle()
 	return rot
@@ -64,15 +64,28 @@ func calculate_speed() -> void:
 	pass
 
 
-func get_closest_target() -> Node2D:
+func get_closest_target() -> Enemy:
 	if targets.size() == 0:
-		return
-	var closest_enemy := targets[0]
+		return null
+	
+	# 清理无效的目标
+	var valid_targets: Array[Enemy] = []
+	for target in targets:
+		if is_instance_valid(target):
+			valid_targets.append(target)
+	targets = valid_targets
+	
+	if targets.size() == 0:
+		return null
+	
+	var closest_enemy: Enemy = targets[0]
 	var closest_distance := global_position.distance_to(closest_enemy.global_position)
 	
 	#所有目标组中的成员与0号位去比较
-	for i in range(1,targets.size()):
+	for i in range(1, targets.size()):
 		var target: Enemy = targets[i]
+		if not is_instance_valid(target):
+			continue
 		var distance := global_position.distance_to(target.global_position)
 	
 		if distance < closest_distance:
@@ -80,9 +93,9 @@ func get_closest_target() -> Node2D:
 			closest_distance = distance
 	return closest_enemy
 
-func setup_weapon(data: ItemWeapon) -> void:
-	self.data = data
-	collision.shape.radius = data.stats.max_range
+func setup_weapon(weapon_data: ItemWeapon) -> void:
+	self.data = weapon_data
+	collision.shape.radius = weapon_data.stats.max_range
 	pass
 
 
@@ -96,12 +109,22 @@ func can_use_weapon() -> bool:
 
 
 func _on_range_area_area_entered(area: Area2D) -> void:
-	targets.push_back(area)
+	# 从area的owner获取Enemy对象
+	if area.owner is Enemy:
+		var enemy: Enemy = area.owner as Enemy
+		if not targets.has(enemy):
+			targets.append(enemy)
+			print("Weapon: 检测到敌人 %s" % enemy.name)
 	pass # Replace with function body.
 
 
 func _on_range_area_area_exited(area: Area2D) -> void:
-	targets.erase(area) 
+	# 从area的owner获取Enemy对象并移除
+	if area.owner is Enemy:
+		var enemy: Enemy = area.owner as Enemy
+		if targets.has(enemy):
+			targets.erase(enemy)
+			print("Weapon: 敌人 %s 离开范围" % enemy.name)
 	if targets.size() == 0:
 		closest_target = null
 	pass # Replace with function body.
